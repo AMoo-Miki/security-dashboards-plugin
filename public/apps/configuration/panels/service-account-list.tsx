@@ -15,7 +15,7 @@
 
 import {
   EuiBadge,
-  EuiButtonEmpty,
+  EuiSmallButtonEmpty,
   EuiFlexGroup,
   EuiFlexItem,
   EuiInMemoryTable,
@@ -132,7 +132,7 @@ export function ServiceAccountList(props: AppDependencies) {
   }, [props.coreStart.http]);
 
   const actionsMenuItems = [
-    <EuiButtonEmpty
+    <EuiSmallButtonEmpty
       data-test-subj="edit"
       key="edit"
       onClick={() => {
@@ -141,8 +141,8 @@ export function ServiceAccountList(props: AppDependencies) {
       disabled={selection.length !== 1}
     >
       Edit
-    </EuiButtonEmpty>,
-    <EuiButtonEmpty
+    </EuiSmallButtonEmpty>,
+    <EuiSmallButtonEmpty
       data-test-subj="duplicate"
       key="duplicate"
       onClick={() => {
@@ -155,8 +155,8 @@ export function ServiceAccountList(props: AppDependencies) {
       disabled={selection.length !== 1}
     >
       Duplicate
-    </EuiButtonEmpty>,
-    <EuiButtonEmpty
+    </EuiSmallButtonEmpty>,
+    <EuiSmallButtonEmpty
       key="export"
       disabled={selection.length !== 1}
       href={
@@ -167,7 +167,7 @@ export function ServiceAccountList(props: AppDependencies) {
       target="_blank"
     >
       Export JSON
-    </EuiButtonEmpty>,
+    </EuiSmallButtonEmpty>,
   ];
 
   const [actionsMenu, closeActionsMenu] = useContextMenuState('Actions', {}, actionsMenuItems);
