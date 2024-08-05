@@ -168,11 +168,20 @@ export function AccountNavButton(props: {
     </div>
   );
   return (
-    <EuiHeaderSectionItemButton id="user-icon-btn">
+    <EuiHeaderSectionItemButton
+      id="user-icon-btn"
+      size={props.coreStart.uiSettings.get('home:useNewHomePage') ? 'xs' : 'l'}
+      flush={props.coreStart.uiSettings.get('home:useNewHomePage') ? 'both' : undefined}
+    >
       <EuiPopover
         data-test-subj="account-popover"
         id="actionsMenu"
-        button={<EuiAvatar name={username} />}
+        button={
+          <EuiAvatar
+            name={username}
+            size={props.coreStart.uiSettings.get('home:useNewHomePage') ? 's' : 'm'}
+          />
+        }
         isOpen={isPopoverOpen}
         closePopover={() => {
           setPopoverOpen(false);
